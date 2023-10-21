@@ -1,0 +1,67 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        JLabel label2 = new JLabel("ammo");
+        label2.setVisible(false);
+        label2.setBounds(300,300,100,200);
+
+        JButton button = new JButton();
+        button.addActionListener(e -> {
+            System.out.println("hello");
+            int a = 4;
+            int b = 3;
+            System.out.println(a+b);
+            label2.setVisible(!label2.isVisible());
+        });
+        button.setText("im a Button");
+        button.setFocusable(false); //get rid of the text border
+        button.setBounds(200,200,200,50);
+        button.setHorizontalTextPosition(JButton.CENTER);
+        button.setVerticalTextPosition(JButton.CENTER);
+        button.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        button.setIconTextGap(-15);
+        button.setForeground(Color.black); //text color
+        button.setBackground(Color.lightGray);
+        button.setBorder(BorderFactory.createEtchedBorder());
+        button.setEnabled(true); //can disable with this
+
+
+        ImageIcon image = new ImageIcon("src/parking.png");
+        JLabel label = new JLabel("hello there");
+        label.setHorizontalTextPosition(JLabel.CENTER);
+        label.setVerticalTextPosition(JLabel.TOP);
+        label.setForeground(new Color(0x00FF00)); //font color
+        label.setFont(new Font("consolas",Font.PLAIN,20));
+        label.setIconTextGap(100);
+        label.setBackground(Color.black);
+        label.setOpaque(true);
+        label.setVerticalAlignment(JLabel.CENTER);
+        //set vertical alignment of text + img
+        label.setHorizontalAlignment(JLabel.CENTER);
+        //set horizontal alignment
+        label.setBounds(0,0,100,100);
+        //set the bounds if the layout manager is null
+
+        JFrame frame = new JFrame();
+        frame.setTitle("Car Parking System");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setSize(500,500);
+        frame.setIconImage(image.getImage());
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(Color.darkGray);
+
+        frame.add(label);
+        frame.add(label2);
+        frame.add(button);
+        /*
+        label.setIcon(image);
+        frame.pack(); //frame size fits to the components :p
+        but remember to add all the components and then pack()
+*/
+
+    }
+}
